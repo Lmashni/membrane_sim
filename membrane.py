@@ -6,6 +6,8 @@ Created on Fri Jan 21 01:22:04 2022
 @author: lyth
 """
 
+import numpy as np
+import matplotlib.pyplot as plt
 
 t = 100000
 d = 128
