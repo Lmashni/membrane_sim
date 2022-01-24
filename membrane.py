@@ -9,6 +9,7 @@ Created on Fri Jan 21 01:22:04 2022
 import numpy as np
 import matplotlib.pyplot as plt
 
+plot= False
 t = 100000
 d = 128
 dt = 0.0001
@@ -35,8 +36,8 @@ def CN(Z):
 
 def stp(x,v,dt):
     
-    #a = -(x*9 -CN(x))
-    a = -(9*x*x-2*x*CN(x)+CN(x*x))
+    a = -(x*9 -CN(x))
+    #a = -(9*x*x-2*x*CN(x)+CN(x*x))
     return x + dt*v,v + dt * a
 
 X = np.zeros((t,d,d))
@@ -48,12 +49,12 @@ for i in range(t):
     #plt.imsave('./membrane_plts/plt'+str(i),x)
     x,v = stp(x,v,dt)
     #x,v = x/x.sum(), v/v.sum()
-'''    
-for i in range(len(X)):
-    print(i)
-    plt.imsave('./membrane_plts/plt'+str(i),X[i],vmin=X.min(),vmax=X.max())
-#plt.imshow(x)
-'''
+
+if plots = True:
+    for i in range(len(X)):
+        print(i)
+        plt.imsave('./membrane_plts/plt'+str(i),X[i],vmin=X.min(),vmax=X.max())
+
 def lapse(X,s,st,stp):
     #var = pc.read_var()
     d = stp
@@ -63,3 +64,5 @@ def lapse(X,s,st,stp):
         ax[i].imshow(X[s+d*i])
         ax[i].xaxis.set_visible(False)
         ax[i].yaxis.set_visible(False)
+
+lapse(X,0,10000,1000)
